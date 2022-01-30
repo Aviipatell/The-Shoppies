@@ -83,9 +83,9 @@ const searchBar = document.querySelector("#search-bar");
 searchBar.addEventListener("input", (e) => {
   const searchValue = e.target.value;
 
-//   if (searchValue === "") {
-//       break;
-//   }
+  //   if (searchValue === "") {
+  //       break;
+  //   }
 
   // clear searchResultContainer
   while (searchResultContainer.firstChild) {
@@ -166,4 +166,22 @@ const alreadyNominated = (movieID) => {
 
   //   }
   return false;
+};
+
+const downloadCSV = () => {
+  var csv = "Movie Name, Imdb ID, Poster URL\n";
+  nominationsArray.forEach((nomination) => {
+    csv += `${nomination.title},${nomination.imdbID},${nomination.poster}`;
+    csv += "\n";
+  });
+
+  //   document.write(csv);
+
+  var hiddenElement = document.createElement("a");
+  hiddenElement.href = "data:text/csv;charset=utf-8," + encodeURI(csv);
+  hiddenElement.target = "_blank";
+
+  //provide the name for the CSV file to be downloaded
+  hiddenElement.download = "The Shoppies Nominations.csv";
+  hiddenElement.click();
 };
