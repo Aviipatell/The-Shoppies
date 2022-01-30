@@ -2,6 +2,13 @@ const searchResultContainer = document.querySelector(".search-results");
 const nominationsContainer = document.querySelector(".nominations");
 const resultTemplate = document.querySelector(".result-template");
 const nominationTemplate = document.querySelector(".nomination-template");
+const noNominationFoundTemplate = document.querySelector(
+  ".no-nominations-found-template"
+);
+const tooManyResultsTemplate = document.querySelector(
+  ".too-many-results-template"
+);
+const noMovieFoundTemplate = document.querySelector(".no-movie-found-template");
 
 let nominationsArray = [];
 
@@ -11,7 +18,9 @@ const updateNominations = () => {
   }
 
   if (nominationsArray.length == 0) {
-    console.log("No nominations");
+    const noNomination =
+      noNominationFoundTemplate.content.cloneNode(true).children[0];
+    nominationsContainer.append(noNomination);
   } else {
     nominationsArray.forEach((nomination) => {
       const nominationResult =
@@ -68,9 +77,15 @@ const updateNominations = () => {
   console.log(nominationsArray);
 };
 
+updateNominations();
+
 const searchBar = document.querySelector("#search-bar");
 searchBar.addEventListener("input", (e) => {
   const searchValue = e.target.value;
+
+//   if (searchValue === "") {
+//       break;
+//   }
 
   // clear searchResultContainer
   while (searchResultContainer.firstChild) {
@@ -102,7 +117,11 @@ searchBar.addEventListener("input", (e) => {
             });
             updateNominations();
 
-            e.target.parentElement.disabled = true;
+            if (e.target.classList.contains("result-button")) {
+              e.target.disabled = true;
+            } else {
+              e.target.parentElement.disabled = true;
+            }
           });
 
           if (alreadyNominated(result.imdbID)) {
@@ -117,8 +136,14 @@ searchBar.addEventListener("input", (e) => {
         if (data.Response === "False") {
           if (data.Error.toLowerCase().includes("movie not found")) {
             console.log("Movie not found error");
+            const movieNotFoundResponse =
+              noMovieFoundTemplate.content.cloneNode(true).children[0];
+            searchResultContainer.append(movieNotFoundResponse);
           } else {
             console.log("Too many results error");
+            const tooManyResultsResponse =
+              tooManyResultsTemplate.content.cloneNode(true).children[0];
+            searchResultContainer.append(tooManyResultsResponse);
           }
         }
       }

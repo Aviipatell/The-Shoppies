@@ -26,10 +26,25 @@
           <p>Movie awards for entrepreneurs</p>
         </div>
         <div class="search-bar-container">
-          <label for="search-bar">Search Movies</label>
-          <input type="search" id="search-bar" />
+          <label for="search-bar" class="search-label">Search Movies:</label>
+          <input
+            type="search"
+            id="search-bar"
+            class="search-bar"
+            placeholder="Ex: Planet of the Apes"
+          />
         </div>
         <div class="search-results">
+          <template class="too-many-results-template">
+            <div class="too-many-results">
+              <p>Too many results.</p>
+            </div>
+          </template>
+          <template class="no-movie-found-template">
+            <div class="no-movie-found">
+              <p>No movie found.</p>
+            </div>
+          </template>
           <template class="result-template">
             <div class="result-card">
               <p class="result-title"></p>
@@ -43,6 +58,11 @@
         <div class="nominations-container">
           <p>Your Nominations</p>
           <div class="nominations">
+            <template class="no-nominations-found-template">
+              <div class="no-nominations-card">
+                <p>No nominations added.</p>
+              </div>
+            </template>
             <template class="nomination-template">
               <div class="nomination-card">
                 <p class="nomination-title"></p>
