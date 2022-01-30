@@ -1,7 +1,5 @@
 # The-Shoppies
 
-## What I did:
-
 * Created a responsive webpage as part of my task for Shopify’s job application process for the position of frontend developer. 
 * Connected to the Open Movie Database (OMDb) API to set up a search bar for users to browse through their favourite movies and select their favourite ones and add them to their nominations.
 * Also allowed for their nominations to be downloaded as a CSV file so that it can be shared or viewed at a later time.
