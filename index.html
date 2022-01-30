@@ -5,6 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Shoppies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/8414947174.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="container-left">
+        <div class="head">
+          <h1>The Shoppies</h1>
+          <p>Movie awards for entrepreneurs</p>
+        </div>
+        <div class="search-bar-container">
+          <label for="search-bar">Search Movies</label>
+          <input type="search" id="search-bar" />
+        </div>
+        <div class="search-results">
+          <template class="result-template">
+            <div class="result-card">
+              <p class="result-title"></p>
+              <button class="result-button"><i class="fas fa-plus"></i></button>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <div class="container-right">
+        <div class="nominations-container">
+          <p>Your Nominations</p>
+          <div class="nominations">
+            <template class="nomination-template">
+              <div class="nomination-card">
+                <p class="nomination-title"></p>
+                <button class="nomination-button">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,14 @@
+:root {
+  --accent-color: #897171;
+  --head-color: #381617;
+  --background-highlights: rgba(191, 165, 164, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Bai Jamjuree", sans-serif;
+}
