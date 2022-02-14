@@ -92,7 +92,7 @@ searchBar.addEventListener("input", (e) => {
     searchResultContainer.removeChild(searchResultContainer.firstChild);
   }
 
-  fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=b3909245`)
+  fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=b3909245`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
